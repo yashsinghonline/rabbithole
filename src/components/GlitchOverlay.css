@@ -1,0 +1,77 @@
+.glitch-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 99999;
+  overflow: hidden;
+  animation: glitchShake 120ms infinite;
+}
+
+.glitch-noise {
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,.05) 0px,
+      rgba(255,255,255,.05) 1px,
+      transparent 2px,
+      transparent 4px
+    );
+  opacity: .5;
+  animation: noiseMove .12s steps(2) infinite;
+}
+
+.glitch-scanlines {
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 2px,
+      rgba(255,255,255,.08) 3px,
+      transparent 4px
+    );
+  opacity: .4;
+}
+
+.glitch-rgb {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(255,0,0,.06), rgba(255,0,0,.06)),
+    linear-gradient(rgba(0,255,255,.06), rgba(0,255,255,.06));
+  mix-blend-mode: screen;
+  animation: rgbShift 150ms infinite;
+}
+
+@keyframes glitchShake {
+  0%   { transform: translate(0); }
+  20%  { transform: translate(-5px,2px); }
+  40%  { transform: translate(4px,-3px); }
+  60%  { transform: translate(-3px,4px); }
+  80%  { transform: translate(5px,-2px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes noiseMove {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(15px); }
+}
+
+@keyframes rgbShift {
+  0% {
+    transform: translateX(-2px);
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    transform: translateX(2px);
+    filter: hue-rotate(25deg);
+  }
+  100% {
+    transform: translateX(-2px);
+    filter: hue-rotate(0deg);
+  }
+}
