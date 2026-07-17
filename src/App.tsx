@@ -1,4 +1,4 @@
-import { HashRouter, Route, Routes } from "react-router-dom";
+import {  Route, Routes } from "react-router-dom";
 import { useState } from "react";
 
 import Home from "./pages/Home";
@@ -26,12 +26,10 @@ export default function App() {
       {/* Global Glitch Effect */}
       <GlitchOverlay />
 
-      <HashRouter>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="*" element={<Home />} />
         </Routes>
-      </HashRouter>
     </>
   );
 }
